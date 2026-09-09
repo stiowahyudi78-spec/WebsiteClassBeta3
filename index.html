@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelas VIII.A</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif, Arial;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ================= HALAMAN 1 (SAMBUTAN) ================= */
+        #halaman-1 {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            background: linear-gradient(135deg, #ffffff, #f1f5f9);
+            color: #334155;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .welcome-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            padding: 40px 25px 25px 25px;
+            border-radius: 20px;
+            max-width: 550px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 35px;
+        }
+
+        /* ANIME CHARACTERS STYLES */
+        .anime-wrapper {
+            position: absolute;
+            width: 95px;
+            height: 95px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .anime-cowok {
+            top: -65px;
+            left: 10px;
+            animation: floatCowok 3.5s ease-in-out infinite;
+        }
+
+        .anime-cewek {
+            top: -65px;
+            right: 10px;
+            animation: floatCewek 3.5s ease-in-out infinite;
+        }
+
+        .anime-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+        }
+
+        @keyframes floatCowok {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-6px) rotate(2deg); }
+        }
+
+        @keyframes floatCewek {
+            0%, 100% { transform: translateY(0) rotate(2deg); }
+            50% { transform: translateY(-6px) rotate(-2deg); }
+        }
+
+        .welcome-card h1 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .neon-blue {
+            color: #0284c7;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+            font-weight: bold;
+        }
+
+        .typing-container {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #475569;
+        }
+
+        .cursor {
+            display: inline-block;
+            font-weight: bold;
+            color: #0284c7;
+            margin-left: 2px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .btn-visit {
+            display: inline-block;
+            padding: 10px 28px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.25);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-visit:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(30, 60, 114, 0.4);
+        }
+
+        /* ================= HALAMAN 2 (UTAMA) ================= */
+        #halaman-2 {
+            display: none;
+        }
+
+        .fade-in-page {
+            animation: fadeIn 0.8s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* NAVBAR SAMA SEKALI TANPA SCROLLBAR (GRID CONTAINER PAS 1 BARIS) */
+        .navbar-menu {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 15px auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .nav-btn {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 6px 2px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .nav-btn:hover, .nav-btn:active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1e3c72;
+            border-color: #ffffff;
+            text-shadow: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (min-width: 480px) {
+            .nav-btn {
+                font-size: 0.78rem;
+                padding: 7px 4px;
+            }
+        }
+
+        header {
+            background: linear-gradient(rgba(14, 26, 53, 0.65), rgba(14, 26, 53, 0.65)), 
+                        url('https://oceanslinkupl.rf.gd/uploads/9df5bf825f0ae41d2de55040e2ee9475.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 15px 10px 45px 10px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        header h3 {
+            font-size: 1.1rem;
+            color: #ffeb3b;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+            margin: 5px 0;
+        }
+
+        header .sub-title {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 4px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            scroll-margin-top: 20px;
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #2a5298;
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        .card p {
+            color: #475569;
+            text-align: left;
+            margin-bottom: 12px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* STYLES DESAIN STATISTIK KARTU */
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #e2e8f0;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 0 5px;
+        }
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+            margin: 0 auto 6px auto;
+            color: #5b21b6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }
+
+        .stat-number {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-top: 4px;
+            line-height: 1.2;
+        }
+
+        /* GALERI FOTO SISWA */
+        .gallery-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 25px 0;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-container::before,
+        .gallery-container::after {
+            content: '';
+            flex: 0 0 calc(50% - 75px);
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #2a5298;
+            border-radius: 10px;
+        }
+
+        .siswa-card {
+            flex: 0 0 150px;
+            scroll-snap-align: center;
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+            transform: scale(0.88);
+            opacity: 0.75;
+            cursor: pointer;
+        }
+
+        .siswa-card.active-focus {
+            transform: scale(1.1) translateY(-4px);
+            opacity: 1;
+            box-shadow: 0 10px 20px rgba(30, 60, 114, 0.2);
+            border-color: #2a5298;
+            z-index: 2;
+        }
+
+        .siswa-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            background-color: #ddd;
+        }
+
+        .siswa-card p {
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #1e3c72;
+            text-align: center;
+        }
+
+        .grid-struktur {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            text-align: center;
+        }
+
+        .struktur-item {
+            background: #eef2f5;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #2a5298;
+            transition: transform 0.2s ease;
+        }
+
+        .struktur-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .motivasi-box {
+            background: #e3f2fd;
+            border-left: 5px solid #1e3c72;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: #0d47a1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #333;
+            color: white;
+            margin-top: 30px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HALAMAN 1 (SAMBUTAN) -->
+    <div id="halaman-1">
+        <div class="welcome-card">
+            
+            <div class="anime-wrapper anime-cowok">
+                <img src="https://oceanslinkupl.rf.gd/uploads/26c871e965ba26f472a2d1050efa6754.png" 
+                     alt="Chibi Cowok" 
+                     class="anime-img" 
+                     referrerpolicy="no-referrer">
+            </div>
+
+            <div class="anime-wrapper anime-cewek">
+                <img src="https://oceanslinkupl.rf.gd/uploads/3d1dc7b11652110b03408a63b447ecb5.png" 
+                     alt="Chibi Cewek" 
+                     class="anime-img" 
+                     referrerpolicy="no-referrer">
+            </div>
+
+            <h1>Welcome to Class VIII.A! 👋</h1>
+            
+            <div class="typing-container">
+                <span id="typing-text"></span><span class="cursor">|</span>
+            </div>
+            
+            <button class="btn-visit" id="tombol-masuk">Kunjungi Website Kami</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 2 (UTAMA) -->
+    <div id="halaman-2">
+        <header>
+            <!-- NAVIGASI 4 TOMBOL PRESISI TANPA SCROLLBAR -->
+            <nav class="navbar-menu">
+                <a href="#siapa-kami" class="nav-btn">Siapa Kami</a>
+                <a href="#galeri-siswa" class="nav-btn">Galeri Siswa</a>
+                <a href="#struktur-organisasi" class="nav-btn">Struktur Org</a>
+                <a href="#motivasi-tujuan" class="nav-btn">Motivasi & Tujuan</a>
+            </nav>
+
+            <h3 style="margin-top: 15px;">Website Resmi 👋</h3>
+            <h1>MTs Norhidayah Pundu</h1>
+            <div class="sub-title">Kelas VIII.A</div>
+        </header>
+
+        <div class="container">
+            
+            <!-- BAGIAN SIAPA KAMI -->
+            <section class="card" id="siapa-kami">
+                <h2>Siapa Kami?</h2>
+                <p>Kami adalah siswa-siswi <strong>MTs Norhidayah Pundu kelas VIII.A</strong>. Kami merupakan sebuah kelas yang terdiri dari berbagai karakter, minat, dan bakat yang berbeda-beda.</p>
+                <p>MTs Norhidayah Pundu didirikan pada tahun 2010 dan berada di Desa Pundu, Kalimantan Tengah. Di sekolah ini, kami tidak hanya belajar berbagai ilmu pengetahuan, tetapi juga belajar tentang kerja sama, kedisiplinan, tanggung jawab, serta mengembangkan minat dan bakat. Berbagai kegiatan di sekolah juga menjadi bagian dari pengalaman dan kenangan kami bersama.</p>
+                <p>Di kelas VIII.A, kami belajar, bekerja sama, dan menciptakan berbagai pengalaman bersama. Melalui website ini, kami ingin memperkenalkan kelas kami lebih dekat, mulai dari siswa-siswi, kegiatan, prestasi, hingga berbagai hal menarik tentang kelas VIII.A.</p>
+
+                <!-- STATISTIK (ANGGOTA AKTIF, PROYEK SELESAI, PENGHARGAAN) -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Anggota Aktif</div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V18z" opacity=".3"/><path d="M12 6c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 10c-2 0-6 1.1-6 3.1V20h12v-.9c0-2-4-3.1-6-3.1zm8-13H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H4V5h16v14z"/><circle cx="8" cy="8" r="2"/><circle cx="16" cy="8" r="2"/><path d="M16 11h-2v2h2v-2zm-6 0H8v2h2v-2z"/></svg>
+                        </div>
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Proyek Selesai</div>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V18H8v2h8v-2h-3v-2.1c2.12-.39 3.79-2.02 4.39-4.14C19.8 11.23 21 9.38 21 7V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+                        </div>
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Penghargaan</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GALERI SISWA -->
+            <section class="card" id="galeri-siswa">
+                <h2>Galeri Siswa (20 Siswa)</h2>
+                <div class="gallery-container" id="galeri">
+                    <div class="siswa-card">
+                        <img src="https://oceanslinkupl.rf.gd/uploads/ce2b52929b5166f5b4ccc72cd47b3849.jpg" alt="Foto Siswa 1" referrerpolicy="no-referrer">
+                        <p>Siswa 1</p>
+                    </div>
+                    <div class="siswa-card"><img src="foto2.jpg" alt="Foto"><p>Siswa 2</p></div>
+                    <div class="siswa-card"><img src="foto3.jpg" alt="Foto"><p>Siswa 3</p></div>
+                    <div class="siswa-card"><img src="foto4.jpg" alt="Foto"><p>Siswa 4</p></div>
+                    <div class="siswa-card"><img src="foto5.jpg" alt="Foto"><p>Siswa 5</p></div>
+                    <div class="siswa-card"><img src="foto6.jpg" alt="Foto"><p>Siswa 6</p></div>
+                    <div class="siswa-card"><img src="foto7.jpg" alt="Foto"><p>Siswa 7</p></div>
+                    <div class="siswa-card"><img src="foto8.jpg" alt="Foto"><p>Siswa 8</p></div>
+                    <div class="siswa-card"><img src="foto9.jpg" alt="Foto"><p>Siswa 9</p></div>
+                    <div class="siswa-card"><img src="foto10.jpg" alt="Foto"><p>Siswa 10</p></div>
+                    <div class="siswa-card"><img src="foto11.jpg" alt="Foto"><p>Siswa 11</p></div>
+                    <div class="siswa-card"><img src="foto12.jpg" alt="Foto"><p>Siswa 12</p></div>
+                    <div class="siswa-card"><img src="foto13.jpg" alt="Foto"><p>Siswa 13</p></div>
+                    <div class="siswa-card"><img src="foto14.jpg" alt="Foto"><p>Siswa 14</p></div>
+                    <div class="siswa-card"><img src="foto15.jpg" alt="Foto"><p>Siswa 15</p></div>
+                    <div class="siswa-card"><img src="foto16.jpg" alt="Foto"><p>Siswa 16</p></div>
+                    <div class="siswa-card"><img src="foto17.jpg" alt="Foto"><p>Siswa 17</p></div>
+                    <div class="siswa-card"><img src="foto18.jpg" alt="Foto"><p>Siswa 18</p></div>
+                    <div class="siswa-card"><img src="foto19.jpg" alt="Foto"><p>Siswa 19</p></div>
+                    <div class="siswa-card"><img src="foto20.jpg" alt="Foto"><p>Siswa 20</p></div>
+                </div>
+            </section>
+
+            <!-- STRUKTUR ORGANISASI -->
+            <section class="card" id="struktur-organisasi">
+                <h2>Struktur Organisasi</h2>
+                <div class="grid-struktur">
+                    <div class="struktur-item"><h4>Wali Kelas</h4><p>Ibu Halimatus</p></div>
+                    <div class="struktur-item"><h4>Ketua Kelas</h4><p>Husin</p></div>
+                    <div class="struktur-item"><h4>Wakil Kelas</h4><p>Ujaini</p></div>
+                    <div class="struktur-item"><h4>Sekretaris</h4><p>Afika</p></div>
+                    <div class="struktur-item"><h4>Bendahara</h4><p>Nazwa</p></div>
+                </div>
+            </section>
+
+            <!-- MOTIVASI & TUJUAN -->
+            <section class="card" id="motivasi-tujuan">
+                <h2>Motivasi & Tujuan</h2>
+                <div class="motivasi-box">
+                    "Belajar bersama, saling merangkul, dan mengukir prestasi demi masa depan yang cerah."
+                </div>
+                <p><strong>Tujuan Website:</strong></p>
+                <p>Website ini dikembangkan sebagai ruang digital resmi untuk mempererat kebersamaan dan identitas seluruh warga kelas VIII.A MTs Norhidayah Pundu.</p>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Kelas VIII.A MTs Norhidayah Pundu</p>
+        </footer>
+    </div>
+
+    <!-- SCRIPT LOGIKA -->
+    <script>
+        const fullContent = `Selamat datang di website resmi <span class="neon-blue">VIII.A MTs Norhidayah Pundu</span>.<br><br>Website ini hadir sebagai wadah kebersamaan untuk mengenal kelas kami lebih dekat. Temukan informasi profil, daftar siswa, hingga kegiatan menarik kami di sini.<br><br>Klik tombol di bawah untuk menjelajah! ✨`;
+
+        const typingSpeed = 30;
+        const targetElement = document.getElementById("typing-text");
+
+        let charIndex = 0;
+        let isTag = false;
+        let currentHTML = "";
+
+        function typeWriter() {
+            if (charIndex < fullContent.length) {
+                let char = fullContent.charAt(charIndex);
+
+                if (char === '<') isTag = true;
+                currentHTML += char;
+                if (char === '>') isTag = false;
+
+                targetElement.innerHTML = currentHTML;
+                charIndex++;
+
+                if (isTag) {
+                    typeWriter();
+                } else {
+                    setTimeout(typeWriter, typingSpeed);
+                }
+            }
+        }
+
+        window.onload = function() {
+            typeWriter();
+        };
+
+        const btnMasuk = document.getElementById('tombol-masuk');
+        const hal1 = document.getElementById('halaman-1');
+        const hal2 = document.getElementById('halaman-2');
+
+        btnMasuk.addEventListener('click', function() {
+            hal1.style.display = 'none';
+            hal2.style.display = 'block';
+            hal2.classList.add('fade-in-page');
+            window.scrollTo(0, 0);
+            setTimeout(deteksiFotoTengah, 100);
+        });
+
+        const galeri = document.getElementById('galeri');
+        const cards = document.querySelectorAll('.siswa-card');
+
+        function deteksiFotoTengah() {
+            const containerCenter = galeri.scrollLeft + (galeri.clientWidth / 2);
+            let fotoTerdekat = null;
+            let jarakTerkecil = Infinity;
+
+            cards.forEach(card => {
+                const cardCenter = card.offsetLeft + (card.clientWidth / 2);
+                const jarak = Math.abs(containerCenter - cardCenter);
+
+                if (jarak < jarakTerkecil) {
+                    jarakTerkecil = jarak;
+                    fotoTerdekat = card;
+                }
+            });
+
+            cards.forEach(card => card.classList.remove('active-focus'));
+            if (fotoTerdekat) {
+                fotoTerdekat.classList.add('active-focus');
+            }
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const cardCenter = this.offsetLeft + (this.clientWidth / 2);
+                const scrollTarget = cardCenter - (galeri.clientWidth / 2);
+                galeri.scrollTo({
+                    left: scrollTarget,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        galeri.addEventListener('scroll', deteksiFotoTengah);
+    </script>
+</body>
+</html>
